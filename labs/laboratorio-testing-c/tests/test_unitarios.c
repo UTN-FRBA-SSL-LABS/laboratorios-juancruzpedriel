@@ -33,9 +33,14 @@ void test_total_precio_unitario(void) {
 
 /* TODO: pegar aqui la funcion test_total_precio_unitario() */
 
-/* ═══════════════════════════════════════════════════════════════════════════
- *  PARTE B — Completar los blancos (ver README.md, Parte 5)
- * ═══════════════════════════════════════════════════════════════════════════ */
+void test_total_con_cantidad(void) {
+    printf("\n[total: un producto, cantidad 2]\n");
+    Carrito c;
+    carrito_init(&c);
+    Producto p = {"Leche", 350, 2};  /* 350 x 2 = 700 */
+    carrito_agregar(&c, p);
+    ASSERT_IGUAL(700, carrito_total(&c));  /* <-- completar el valor esperado */
+}
 
 /* TODO: pegar y completar la funcion test_total_con_cantidad() */
 
@@ -55,7 +60,7 @@ int main(void) {
     test_agregar_uno();
     /* Descomentar a medida que agregues las funciones: */
      test_total_precio_unitario(); 
-    /* test_total_con_cantidad();    */
+    test_total_con_cantidad();    
     /* test_carrito_lleno();         */
     RESUMEN();
     return EXIT_CODE();
