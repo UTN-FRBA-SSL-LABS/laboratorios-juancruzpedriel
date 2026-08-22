@@ -1,0 +1,7 @@
+=== Tests de integracion ===
+[integracion: compra completa con descuento]
+  [OK]   carrito_contar(&c) == 3
+  [OK]   total == 2800
+  [OK]   total_desc == 2520
+
+--- 3/3 tests OK ---
