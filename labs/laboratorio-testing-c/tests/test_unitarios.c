@@ -22,9 +22,14 @@ void test_agregar_uno(void) {
     ASSERT_IGUAL(1, carrito_contar(&c));
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
- *  PARTE A — Agregar el siguiente test (ver README.md, Parte 4)
- * ═══════════════════════════════════════════════════════════════════════════ */
+void test_total_precio_unitario(void) {
+    printf("\n[total: un producto, cantidad 1]\n");
+    Carrito c;
+    carrito_init(&c);
+    Producto p = {"Leche", 350, 1};
+    carrito_agregar(&c, p);
+    ASSERT_IGUAL(350, carrito_total(&c));
+}
 
 /* TODO: pegar aqui la funcion test_total_precio_unitario() */
 
@@ -49,7 +54,7 @@ int main(void) {
     test_carrito_nuevo();
     test_agregar_uno();
     /* Descomentar a medida que agregues las funciones: */
-    /* test_total_precio_unitario(); */
+     test_total_precio_unitario(); 
     /* test_total_con_cantidad();    */
     /* test_carrito_lleno();         */
     RESUMEN();
