@@ -4,4 +4,13 @@
   [OK]   total == 2800
   [OK]   total_desc == 2520
 
---- 3/3 tests OK ---
+[integracion: agregar hasta llenar y verificar total]
+  [OK]   carrito_agregar(&c, p1) == 1
+  [OK]   carrito_agregar(&c, p2) == 1
+  [OK]   carrito_agregar(&c, p3) == 1
+  [OK]   carrito_agregar(&c, p4) == 1
+  [OK]   carrito_agregar(&c, p5) == 0
+  [OK]   carrito_contar(&c) == 4
+  [OK]   carrito_total(&c) == 1000
+
+--- 10/10 tests OK ---

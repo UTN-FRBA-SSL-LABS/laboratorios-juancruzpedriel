@@ -319,7 +319,7 @@ Escribí `test_agregar_hasta_llenar()` en el lugar `/* PARTE E */`. Este test de
 Descomentá `/* test_agregar_hasta_llenar(); */` en el `main()`, compilá y corré.
 
 ```
-TEST_LLENAR_PASA=
+TEST_LLENAR_PASA=SI
 ```
 _(SI o NO)_
 
@@ -338,10 +338,10 @@ Las líneas con `#####` nunca se ejecutaron — no están cubiertas por los test
 
 **P10** — ¿Hay alguna línea de `carrito.c` con `#####`? ¿Cuál y por qué no se ejecutó?
 
-> R:
+> R:Si, las líneas 29 y 30 de la función carrito_descuento, que no se ejecutaron porque la cobertura corrió usando test_unitarios.c, y en ese archivo de tests unitarios nunca se escribió una prueba que llame a la función del descuento
 
 ```
-COBERTURA_COMPLETA=
+COBERTURA_COMPLETA=NO
 ```
 _(SI si todas las líneas están cubiertas, NO si hay alguna con #####)_
 
@@ -351,27 +351,27 @@ _(SI si todas las líneas están cubiertas, NO si hay alguna con #####)_
 
 **P11** — ¿Qué diferencia hay entre un test unitario y uno de integración? ¿Cuál de los dos detectó primero el bug de `carrito_total`?
 
-> R:
+> R:un test unitario prueba una sola funcion de forma aislada, mientras que un test de integracion prueba un sistema como varias funciones trabajando juntas. el que detectó el bug de carrito_total fue un test unitario: test_total_con_cantidad
 
 **P12** — El bug de capacidad en `carrito_agregar` causa un **buffer overflow**: se escribe más allá del array. ¿Por qué esto es peligroso en C pero no ocurriría en un lenguaje como Python o Java?
 
-> R:
+> R:esto es peligroso en C porque en C no hay verificacion automatica de los arreglos en tiempo de ejecucion, ya que si se intenta escribir pasando el limite, C sobrescribe otra parte de memoria lo que puede causar comportamientos impredecibles. Python y java por su lado sí verifican los limites y lanzan excepciones deteniendo el programa de forma segura
 
 **P13** — En este laboratorio encontraste los bugs escribiendo tests. ¿Qué tiene de mejor este enfoque frente a mirar el código directamente?
 
-> R:
+> R:lo mejor es que los test son automaticos y repetibles, asi que si se rompe algo el test falla automaticamente avisando del error. mirar el codigo a simple vista puede conllevar errores y requiere de mucho esfuerzo manual cada vez
 
 **P14** — El test `test_total_precio_unitario` (cantidad = 1) **pasó** a pesar del bug, mientras que `test_total_con_cantidad` (cantidad = 2) **falló**. ¿Por qué el primer test no detectó el bug?
 
-> R:
+> R:porque cualquier numero multiplicado por 1 da el mismo numero, entonces al faltar la multiplicacion por la cantidad el test usaba cantidad =1 de forma que el calculo daba el resultado justo de coincidencia y terminaba escondiendo el bug
 
 ```
-BUG_EN_FUNCION_1=
+BUG_EN_FUNCION_1=carrito_total
 ```
 _(nombre de la función con el primer bug)_
 
 ```
-BUG_EN_FUNCION_2=
+BUG_EN_FUNCION_2=carrito_agregar
 ```
 _(nombre de la función con el segundo bug)_
 
